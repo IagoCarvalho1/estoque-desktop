@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export", // permite build estático (quando possível)
+  // se quiser, configure distDir: ".next"
 };
 
 export default nextConfig;
