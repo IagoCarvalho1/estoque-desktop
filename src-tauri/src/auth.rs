@@ -6,8 +6,8 @@ const SECRET: &[u8] = b"CHAVE_SUPER_SECRETA_AQUI";
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Claims {
-    sub: String,
-    exp: usize,
+    pub sub: String,
+    pub exp: usize,
 }
 
 pub fn gerar_token(email: &str) -> String {
@@ -26,7 +26,8 @@ pub fn gerar_token(email: &str) -> String {
 }
 
 pub fn validar_token(token: &str) -> bool {
-    decode::<Claims>(token,
+    decode::<Claims>(
+        token,
         &DecodingKey::from_secret(SECRET),
         &Validation::default(),
     )
